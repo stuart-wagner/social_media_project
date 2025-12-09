@@ -123,7 +123,7 @@ def friends(request):
     request_sent_profiles = user_relationships.values('receiver')
 
     # to get all eligible profiles - exclude the user,  their existing friends, and friend requests already sent
-    all_profiles = Profile.objects.exclude(user=request.user).exclude(id_in=user_friends_profiles).exclude(id_in=request_sent_profiles)
+    all_profiles = Profile.objects.exclude(user=request.user).exclude(id__in=user_friends_profiles).exclude(id__in=request_sent_profiles)
 
 
     # to get friend requests received by the user
@@ -132,7 +132,7 @@ def friends(request):
     # if this is the first time to access the friend request page, create the first relationship
     # with the admin of the website
 
-    if not user_relationships.exist():
+    if not user_relationships.exists():
         Relationship.objects.create(sender=user_profile,receiver=admin_profile, status='sent')
 
     # check to see WHICH submit button was pressed (sending a friend request or accepting a friend request)
@@ -140,6 +140,7 @@ def friends(request):
     # this is to process all send requests
     if request.method == 'POST' and request.POST.get("send_request"):
         receivers = request.POST.getlist("send_request")
+        print(receivers)
         for receiver in receivers:
             receiver_profile = Profile.objects.get(id=receiver)
             Relationship.objects.create(sender=user_profile, receiver=receiver_profile, status='sent')
