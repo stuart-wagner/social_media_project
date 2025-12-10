@@ -75,7 +75,7 @@ def friendsfeed(request):
             return redirect('FeedApp:friendsfeed')
 
     context = {'posts':posts, 'zipped_list': zipped_list}
-    return render(request, 'FeedApp/myfeed.html', context)
+    return render(request, 'FeedApp/friendsfeed.html', context)
 
 
 @login_required
