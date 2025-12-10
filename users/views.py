@@ -22,6 +22,6 @@ def register(request):
             login(request, new_user)
             return redirect('FeedApp:index')
 
-# Display a blank or invalid form.
+    # Display a blank or invalid form.
     context = {'form': form}
     return render(request, 'registration/register.html', context)
