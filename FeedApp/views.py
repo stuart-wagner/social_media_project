@@ -140,7 +140,6 @@ def friends(request):
     # this is to process all send requests
     if request.method == 'POST' and request.POST.get("send_request"):
         receivers = request.POST.getlist("send_request")
-        print(receivers)
         for receiver in receivers:
             receiver_profile = Profile.objects.get(id=receiver)
             Relationship.objects.create(sender=user_profile, receiver=receiver_profile, status='sent')
