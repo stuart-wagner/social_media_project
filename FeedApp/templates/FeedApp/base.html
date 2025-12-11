@@ -15,6 +15,13 @@
     {% bootstrap_javascript jquery='full' %}
 
     <style>
+        body {
+            background-image: url('{% static "GreenWallpaper.PNG" %}');
+            background-size: auto;
+            background-attachment: fixed;
+            background-repeat: repeat;
+        }
+
         .navbar-custom-bg {
             background-color: rgba(82, 92, 76, 0.832) !important;
             border-color: rgba(13, 56, 18, 0.7) !important;
@@ -23,7 +30,7 @@
 
 </head>
 
-<body>
+<body class="page-background">
     <nav class="navbar navbar-expand-md navbar-dark navbar-custom-bg mb-4 border border-3">
 
         <a class="navbar-brand" href="{% url 'FeedApp:index'%}">

@@ -4,15 +4,43 @@
 {% block content %}
 
 <style>
+    /* 1. TEXT SHADOW FOR ALL H2 HEADINGS */
+    h2 {
+        color: white;
+        /* Optional: Make text white for better contrast with dark shadow */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        /* Dark, pronounced shadow */
+    }
+
+    /* 2. STYLE FOR TABLES AND CELLS */
     table {
         font-size: 15px;
         width: auto;
+        /* DROP SHADOW FOR THE ENTIRE TABLE */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        border-collapse: separate;
+        /* Required for rounded corners */
+        border-spacing: 0;
+        /* Remove space between cells */
+        border-radius: 5px;
+        /* Optional: adds subtle rounded corners to the table */
+        overflow: hidden;
+        /* Ensures shadow/radius applies correctly */
     }
 
     th,
     td {
         border: 1px solid black;
         padding: 6px;
+        /* FILL THE GRIDS/CELLS WITH WHITE */
+        background-color: white;
+    }
+
+    /* Optional: Improve contrast for the header row */
+    table tr:first-child th {
+        background-color: #f0f0f0;
+        /* Light gray for the header row */
+        font-weight: bold;
     }
 </style>
 

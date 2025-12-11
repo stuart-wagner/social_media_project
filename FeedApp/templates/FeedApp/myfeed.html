@@ -5,7 +5,31 @@
 
 <div class="container mt-4">
 
-    <h1 class="mb-4">
+    <style>
+        /* 1. DROP SHADOW FOR CARDS */
+        .card {
+            /* X-offset Y-offset Blur-radius Spread-radius Color */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transition: box-shadow 0.3s ease-in-out;
+            /* Smooth transition on hover (optional) */
+        }
+
+        /* Optional: make the card lift slightly when the user hovers over it */
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        }
+
+        /* 2. TEXT COLOR AND SHADOW FOR H1 */
+        .posts-heading {
+            color: white;
+            /* Make the text white */
+            /* X-offset Y-offset Blur-radius Color */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            /* Dark shadow for visibility */
+        }
+    </style>
+
+    <h1 class="posts-heading mb-4">
         <p>My Posts</p>
     </h1>
 
