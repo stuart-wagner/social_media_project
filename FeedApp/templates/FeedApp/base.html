@@ -1,4 +1,5 @@
 {% load bootstrap4 %}
+{% load static %}
 
 <!doctype html>
 
@@ -13,10 +14,17 @@
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
 
+    <style>
+        .navbar-custom-bg {
+            background-color: rgba(82, 92, 76, 0.832) !important;
+            border-color: rgba(13, 56, 18, 0.7) !important;
+        }
+    </style>
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+    <nav class="navbar navbar-expand-md navbar-light navbar-custom-bg mb-4 border border-3">
 
         <a class="navbar-brand" href="{% url 'FeedApp:index'%}">
             Home</a>
