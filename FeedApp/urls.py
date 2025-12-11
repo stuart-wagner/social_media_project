@@ -11,6 +11,7 @@ urlpatterns = [
     path('friendsfeed/', views.friendsfeed, name='friendsfeed'),
     path('comments/<int:post_id>/', views.comments, name='comments'),
     path('friends/', views.friends, name='friends'),
+    path('game/', views.game, name='game'),
     ]
 
     

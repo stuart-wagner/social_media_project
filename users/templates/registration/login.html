@@ -4,21 +4,50 @@
 
 {% block content %}
 
-    <!--If the form’s errors attribute is set, we display an error message-->
-    {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
+<style>
+    p {
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
 
-    <!--set the action argument as the URL of the login page-->
-    <form action="{% url 'users:login' %}" method='post'>
-        {% csrf_token %}
-        {% bootstrap_form form %}
+    .control-label {
+        color: white !important;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    }
 
-        <button class="btn btn-outline-primary" name="submit">Log in</button>
-        <!--include a hidden form element, 'next'; the value argument 
+    form label {
+        color: white !important;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    }
+
+    .form-text,
+    .invalid-feedback {
+        color: white !important;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+    }
+
+    .form-control {
+        /* X-offset Y-offset Blur-radius Color */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 5px;
+    }
+</style>
+
+<!--If the form’s errors attribute is set, we display an error message-->
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+<!--set the action argument as the URL of the login page-->
+<form action="{% url 'users:login' %}" method='post'>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+
+    <button class="btn btn-primary" name="submit">Log in</button>
+    <!--include a hidden form element, 'next'; the value argument 
             tells Django where to redirect the user after they’ve logged in successfully.-->
-        <input type="hidden" name="next"
-        value="{% url 'FeedApp:index' %}" />
-    </form>
+    <input type="hidden" name="next" value="{% url 'FeedApp:index' %}" />
+</form>
 
 {% endblock content %}

@@ -1,14 +1,44 @@
 {% extends "FeedApp/base.html" %}
+{% load bootstrap4 %}
 
 {% block content %}
 
-  <form action="{% url 'users:register' %}" method="post" >
-    {% csrf_token %}
-    {{ form.as_p }}
+<style>
+  p {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
 
-    <button name="submit">Register</button>
-    <input type="hidden" name="next" 
-    value="{% url 'FeedApp:index' %}" />
-  </form>
+  form label,
+  .control-label {
+    color: white !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  }
+
+
+  .helptext li,
+  .help-block li,
+  .form-text,
+  .invalid-feedback,
+  form span,
+  form small {
+    color: white !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  .form-control {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 5px;
+  }
+</style>
+
+<form action="{% url 'users:register' %}" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  <button name="submit" class="btn btn-primary">Register</button>
+  <input type="hidden" name="next" value="{% url 'FeedApp:index' %}" />
+</form>
 
 {% endblock content %}

@@ -5,29 +5,20 @@
 {% block content %}
 
 <style>
-    /* 1. TEXT SHADOW FOR ALL H2 HEADINGS */
     h1 {
         color: white;
-        /* Optional: Make text white for better contrast with dark shadow */
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        /* Dark, pronounced shadow */
     }
 
     .control-label {
         color: white !important;
-        /* Make the label text white */
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-        /* Subtle shadow for labels */
     }
 
-    /* 2. BOX SHADOW FOR INPUT FIELDS (The "Boxes") */
-    /* This targets standard Bootstrap form controls (input, textarea, select) */
     .form-control {
         /* X-offset Y-offset Blur-radius Color */
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-        /* Optional: make the field slightly transparent if your background is complex */
         background-color: rgba(255, 255, 255, 0.95);
-        /* Optional: Add a slight border radius if the default isn't enough */
         border-radius: 5px;
     }
 </style>
@@ -40,7 +31,7 @@
     {% csrf_token %}
     {{ form|crispy }}
     <br><br>
-    <button name="submit" class="btn btn-outline-primary">Update</button>
+    <button name="submit" class="btn btn-primary">Update</button>
 </form>
 
 {% endblock content %}

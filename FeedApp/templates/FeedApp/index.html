@@ -1,5 +1,6 @@
 {% extends "FeedApp/base.html" %}
 {% load static %}
+{% load bootstrap4 %}
 
 {% block page_header %}
 
@@ -16,6 +17,34 @@
     .jumbotron p {
         text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
     }
+
+    .nav-card {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        transition: transform 0.2s, box-shadow 0.2s;
+        /* Crucial: Ensure the card uses its full padding and layout space */
+        display: flex;
+        /* Makes the card a flex container */
+        flex-direction: column;
+        /* Stacks image/body vertically */
+    }
+
+    .nav-card h5,
+    .nav-card p {
+        color: white;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+    }
+
+    .card-body {
+        padding: 1.25rem;
+        /* Ensure the body expands to take remaining space for centering */
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* Centers content vertically */
+        align-items: center;
+        /* Centers content horizontally */
+    }
 </style>
 {% endblock background_style %}
 
@@ -28,3 +57,56 @@
     <a class="btn btn-lg btn-success" href="{% url 'users:register' %}" role="button">Join Now &raquo;</a>
 </div>
 {% endblock page_header %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <div class="col">
+            <a href="{% url 'FeedApp:myfeed' %}" class="text-decoration-none d-block h-100">
+                <div class="card nav-card h-100" style="background-color: rgba(139, 69, 19, 0.9);">
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">My Creations</h5>
+                        <p class="card-text">View your own recipes and posts.</p>
+                    </div>
+
+                    <img src="{% static 'lasagna.png' %}" class="card-img-top mx-auto mt-3"
+                        style="width: 60%; max-height: 150px; border-radius: 4px;" alt="My Feed">
+
+                </div>
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% url 'FeedApp:friendsfeed' %}" class="text-decoration-none">
+                <div class="card nav-card h-100" style="background-color: rgba(0, 122, 12, 0.9);">
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Friends' Dishes</h5>
+                        <p class="card-text">See what your friends are cooking up!</p>
+                    </div>
+
+                    <img src="{% static 'chefs.png' %}" class="card-img-top mx-auto mt-3"
+                        style="width: 60%; max-height: 150px;" alt="Friends Feed">
+                </div>
+            </a>
+        </div>
+
+        <div class="col">
+            <a href="{% url 'FeedApp:game' %}" class="text-decoration-none">
+                <div class="card nav-card h-100" style="background-color: rgba(255, 165, 0, 0.9);">
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">The Arcade</h5>
+                        <p class="card-text">Play simple games for fun.</p>
+                    </div>
+
+                    <img src="{% static 'poker.png' %}" class="card-img-top mx-auto mt-3"
+                        style="width: 60%; max-height: 150px;" alt="Arcade">
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div> {% endblock content %}

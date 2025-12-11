@@ -166,5 +166,5 @@ def friends(request):
     
     return render(request, 'FeedApp/friends.html', context)
 
-def unity_game(request):
-    return render(request, 'FeedApp/unity_game.html', {})
+def game(request):
+    return render(request, 'FeedApp/game.html', {})
