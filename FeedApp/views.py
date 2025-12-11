@@ -5,7 +5,7 @@ from datetime import datetime, date
 
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
-
+from django.shortcuts import render
 
 # Create your views here.
 
@@ -164,3 +164,6 @@ def friends(request):
                'all_profiles': all_profiles, 'requests_received_profiles': requests_received_profiles}
     
     return render(request, 'FeedApp/friends.html', context)
+
+def unity_game(request):
+    return render(request, 'FeedApp/unity_game.html', {})
