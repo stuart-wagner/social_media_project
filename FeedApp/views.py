@@ -165,6 +165,3 @@ def friends(request):
                'all_profiles': all_profiles, 'requests_received_profiles': requests_received_profiles}
     
     return render(request, 'FeedApp/friends.html', context)
-
-def game(request):
-    return render(request, 'FeedApp/game.html', {})
