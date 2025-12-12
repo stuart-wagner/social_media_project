@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-m3zn-=tf0!p!l%zi)h4)2r)1m6sm&@ns@^3)1at#6e)yjmb__r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://kitchenarcade.onrender.com"]
+ALLOWED_HOSTS = ["kitchenarcade.onrender.com"]
 
 
 # Application definition
